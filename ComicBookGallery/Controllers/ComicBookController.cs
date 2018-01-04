@@ -6,11 +6,12 @@ using System.Web.Mvc;
 
 namespace ComicBookGallery.Controllers
 {
-    public class ComicBookController : Controller
+    public class ComicBooksController : Controller
     {
-        public string Detail()
+        public ActionResult Detail()
         {
-            return "Hello from Comic book controller.";
+            if (DateTime.Now.DayOfWeek == DayOfWeek.Thursday) return Redirect("/");
+            return Content("Hello from Comic book controller.");
         }
     }
 }
