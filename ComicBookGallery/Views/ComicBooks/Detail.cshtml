@@ -1,5 +1,15 @@
 ﻿@{
     Layout = null;
+    string seriesTitle = "The Amazing Spider-Mans.";
+    int issueNum = 700;
+    string description = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>";
+    string[] artists = {
+        "Script: Dan Slott",
+        "Pencils: Humberto Ramos",
+        "Inks: Victor Olazaba",
+        "Colors: Edgar Delgado",
+        "Letters: Chris Eliopoulos"
+    };
 }
 
 <!DOCTYPE html>
@@ -11,7 +21,22 @@
 </head>
 <body>
     <div>
-            <h1>Hello from commic books controller</h1>
+            <h1>@seriesTitle</h1>
+            <h2>@issueNum</h2>
+
+            <h4>@Html.Raw(description)</h4>
+            @if (artists.Length>0)
+            {
+                <h5>Artists:</h5>
+                <div>
+                    <ul>
+                        @foreach (string artist in artists)
+                        {
+                            <li><text>@artist</text></li>
+                        }
+                    </ul>
+                </div>
+            }            
     </div>
 </body>
 </html>
