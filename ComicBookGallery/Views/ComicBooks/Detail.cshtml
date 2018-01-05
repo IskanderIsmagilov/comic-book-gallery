@@ -1,15 +1,5 @@
 ﻿@{
     Layout = null;
-    string seriesTitle = "The Amazing Spider-Mans.";
-    int issueNum = 700;
-    string description = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>";
-    string[] artists = {
-        "Script: Dan Slott",
-        "Pencils: Humberto Ramos",
-        "Inks: Victor Olazaba",
-        "Colors: Edgar Delgado",
-        "Letters: Chris Eliopoulos"
-    };
 }
 
 <!DOCTYPE html>
@@ -21,16 +11,16 @@
 </head>
 <body>
     <div>
-            <h1>@seriesTitle</h1>
-            <h2>@issueNum</h2>
+            <h1>@ViewBag.SeriesTitle</h1>
+            <h2>Issue #@ViewBag.IssueNum</h2>
 
-            <h4>@Html.Raw(description)</h4>
-            @if (artists.Length>0)
+            <h4>@Html.Raw(ViewBag.Description)</h4>
+            @if (ViewBag.Artists.Length>0)
             {
                 <h5>Artists:</h5>
                 <div>
                     <ul>
-                        @foreach (string artist in artists)
+                        @foreach (string artist in ViewBag.Artists)
                         {
                             <li><text>@artist</text></li>
                         }
