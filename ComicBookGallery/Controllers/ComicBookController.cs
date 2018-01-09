@@ -27,5 +27,15 @@ namespace ComicBookGallery.Controllers
             }
             return HttpNotFound();
         }
+
+        public ActionResult Series(string seriesTitle)
+        {
+            if (seriesTitle != null)
+            {
+                ComicBook[] series = _comicBookRepo.GetSeries(seriesTitle);
+                return View(series);
+            }
+            return HttpNotFound();
+        }
     }
 }

@@ -63,10 +63,28 @@ namespace ComicBookGallery.Data
             return _comicBooks;
         }
 
+        public ComicBook[] GetSeries(string seriesTitle)
+        {
+            List<ComicBook> series = new List<ComicBook>();
+ 
+            foreach (ComicBook _comicBook in _comicBooks)
+            {
+                if (seriesTitle == _comicBook.SeriesTitle)
+                {
+                    series.Add(_comicBook);
+                }
+            }
+            if (series.Count > 0)
+            {
+                series.Sort();
+                return series.ToArray();
+            }
+            return null;
+        }
+
         public ComicBook GetComicBook(int id)
         {
-            ComicBook comicBook = null;
-            
+            ComicBook comicBook = null;            
             foreach (ComicBook _comicBook in _comicBooks)
             {
                 if (id == _comicBook.Id)
@@ -75,7 +93,6 @@ namespace ComicBookGallery.Data
                     break;
                 }
             }
-
             return comicBook;
         }        
     }
